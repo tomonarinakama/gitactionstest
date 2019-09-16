@@ -1,0 +1,11 @@
+name: CI checks
+on: push
+jobs:
+  checks:
+    name: Run checks
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - uses: actions/setup-python@master
+      - run: pip install -r requirements.txt
+      - run: python -m testtools.run
